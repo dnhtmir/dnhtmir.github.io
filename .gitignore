@@ -1,0 +1,42 @@
+# Hugo output directory
+/public/
+/resources/_gen/
+/resources/sass/
+
+# Logs and temporary files
+*.log
+.DS_Store
+*.bak
+*.swp
+*.tmp
+*.old
+
+# Netlify or other deployment services
+/netlify.toml
+
+# Local server output
+/hugo_stats.json
+
+# Node modules (if using npm or yarn for additional tools)
+node_modules/
+/package-lock.json
+/yarn.lock
+
+# Hugo environment files
+.env
+.env.* 
+
+# Files created by your IDE or editor
+.idea/
+/.vscode/
+/*.iml
+
+# OS-specific files
+Thumbs.db
+ehthumbs.db
+*.Spotlight-V100
+*.Trashes
+
+# macOS cache files
+.AppleDouble
+.LSOverride
