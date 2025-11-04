@@ -93,9 +93,9 @@ I got a pre-built `qemu` VM from [Kali's website](https://www.kali.org/get-kali/
 
 <sup>Note: It's not in the scope of this article to explain how to import virtual machines or create your own ones, or how to install `vscode` on any of these distributions. However, there are plenty of good guides freely available online!</sup>
 
-### Setting up the Ollama container
+### Setting up the `ollama` container
 
-Getting Ollama running in a container was one of the trickiest parts, but the final command that worked looked like this:
+Getting `ollama` running in a container was one of the trickiest parts, but the final command that worked looked like this:
 
 ```
 podman run -d \
@@ -114,7 +114,7 @@ Option breakdown:
 - `podman run -d`: start container in the background.  
 - `--network isolated-llm-container-net`: custom network shared only with related containers.  
 - `--device /dev/kfd`, `--device /dev/dri`: expose GPU devices for ROCm access.  
-- `-v ollama:/root/.ollama`: persistent volume for Ollama data/config.  
+- `-v ollama:/root/.ollama`: persistent volume for `ollama` data/config.  
 - `-p 127.0.0.1:11434:11434`: expose service to host only.  
 - `-p 192.168.122.1:11434:11434`: expose service to VMs on the NAT/VM network.  
 - `--security-opt label=type:container_runtime_t`: Adjusts the SELinux label applied to the container process. This can be required on SELinux‑enforcing systems (like Fedora) to let the container access certain host resources (e.g., GPUs). On systems without SELinux, this flag is usually unnecessary. Be aware that changing SELinux labels can reduce confinement if misused, so apply it only when needed. More details about this option can be found [here](https://docs.podman.io/en/v4.6.0/markdown/options/security-opt.html). 
@@ -143,9 +143,9 @@ Key points:
 - A named volume `open-webui` is mounted to persist data across container restarts.
 - `OLLAMA_BASE_URL` is used to tell `open-webui` where to reach `ollama`.  
 
-### Downloading `Ollama` models
+### Downloading `ollama` models
 
-Ollama provides a [catalog of models](https://ollama.com/search) that can be pulled directly into a container by running the following command: 
+`ollama` provides a [catalog of models](https://ollama.com/search) that can be pulled directly into a container by running the following command: 
 
 ```
 podman exec -it ollama ollama pull <model>
