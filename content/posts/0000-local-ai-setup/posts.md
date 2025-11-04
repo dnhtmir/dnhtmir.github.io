@@ -63,7 +63,7 @@ I didn't want:
 - To deal with GPU passthrough to multiple machines
 - To have to manually do a lot of stuff every time I switched to another machine
 
-This meant I had to find a tool similar to Cursor AI or Github Copilot that could connect to a remote service that would run on the host, using the GPU,and that all virtual machines could use seamlessly, at the same time.
+This meant I had to find a tool similar to Cursor AI or Github Copilot that could connect to a remote service that would run on the host, using the GPU, and that all virtual machines could use seamlessly, at the same time.
 
 ### How to only allow Virtual Machines to connect to the host on a specific port?
 
@@ -111,7 +111,7 @@ podman run -d \
 ```
 
 Option breakdown:
-- `podman run -d`: start container in background.  
+- `podman run -d`: start container in the background.  
 - `--network isolated-llm-container-net`: custom network shared only with related containers.  
 - `--device /dev/kfd`, `--device /dev/dri`: expose GPU devices for ROCm access.  
 - `-v ollama:/root/.ollama`: persistent volume for Ollama data/config.  
@@ -121,7 +121,7 @@ Option breakdown:
 - `-e ROCR_VISIBLE_DEVICES=0`:  [ROCm variable](https://rocm.docs.amd.com/en/latest/conceptual/gpu-isolation.html) to select GPU(s).  
 - `--name ollama`:  easy container reference.  
 
-The container is isolated on its own network, only required devices are passed through, and only necessary ports are exposed — a least‑privilege approach that minimizes attack surface.
+The container is isolated on a separate container network where it can only be accessed by the `open-webui` container, only required devices are passed through, and only necessary ports are exposed. This alligns with my goal of implementing a least‑privilege approach!
 
 ### Adding the Open WebUI container
 
@@ -138,10 +138,10 @@ podman run -d --network isolated-llm-container-net \
 ```
 
 Key points:  
-- Same network: direct communication with `ollama`.  
-- Ports 3000 exposed to host + VM network for UI access.  
-- Volume: persist WebUI data.  
-- `OLLAMA_BASE_URL`: tells WebUI where to reach Ollama.  
+- Uses the same `isolated-llm-container-net` network for direct communication with `ollama`.  
+- Port 3000 exposed to host and VM network for UI access.  
+- A named volume `open-webui` is mounted to persist data across container restarts.
+- `OLLAMA_BASE_URL` is used to tell `open-webui` where to reach `ollama`.  
 
 ### Downloading `Ollama` models
 
