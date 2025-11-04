@@ -67,33 +67,17 @@ params:
     buttons:
       - name: Posts
         url: posts
-      - name: Projects
-        url: projects
-      - name: Services
-        url: services
-      - name: Contact
-        url: contact
+      - name: whoami
+        url: whoami
 
   # home-info mode
   homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: This is my personal page where I share my projects, insights, and thoughts.
+    Title: "dnht"
+    Content: A place where I will dump some InfoSec-related stuff from time to time
 
   socialIcons:
     - name: github
       url: "https://github.com/dnhtmir"
-    - name: hackerone
-      url: "https://hackerone.com"
-    - name: hackthebox
-      url: "https://hackthebox.com"
-
-  analytics:
-    google:
-      SiteVerificationTag: "XYZabc"
-    bing:
-      SiteVerificationTag: "XYZabc"
-    yandex:
-      SiteVerificationTag: "XYZabc"
 
   cover:
     hidden: true # hide everywhere but not in structured data
@@ -122,18 +106,10 @@ menu:
       name: Posts
       url: /posts/
       weight: 10
-    - identifier: project
-      name: Projects
-      url: /project/
+    - identifier: whoami
+      name: whoami
+      url: /whoami/
       weight: 20
-    - identifier: services
-      name: Services
-      url: /services/
-      weight: 30
-    - identifier: contact
-      name: Contact
-      url: /contact/
-      weight: 40
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
