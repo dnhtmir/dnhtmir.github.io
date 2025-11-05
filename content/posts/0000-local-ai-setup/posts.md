@@ -1,8 +1,6 @@
 ---
 title: "Building Local, Privacy‑Focused AI Development Environments"
 date: 2025-11-04T22:08:18Z
-# weight: 1
-# aliases: ["/first"]
 tags: ["local-llm", "virtualization", "development", "privacy", "ai"]
 author: "dnht"
 showToc: true
@@ -11,12 +9,10 @@ draft: false
 hidemeta: false
 comments: false
 description: "Privacy‑centric development environments with local LLMs and virtualization for secure, AI‑assisted coding"
-canonicalURL: "https://canonical.url/to/page"
-disableHLJS: true # to disable highlightjs
+canonicalURL: "https://dnhtmir.github.io/posts/building-local-privacy-focused-ai-dev-envs/"
 disableShare: false
-disableHLJS: false
 hideSummary: false
-searchHidden: true
+searchHidden: false
 ShowReadingTime: true
 ShowBreadCrumbs: true
 ShowPostNavLinks: true
@@ -24,15 +20,11 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 cover:
-    image: "<image path/url>" # image path/url
-    alt: "<alt text>" # alt text
-    caption: "<text>" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
+  hidden: true
 editPost:
-    URL: "https://github.com/dnhtmir/dnhtmir.github.io/blob/main/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+  URL: "https://github.com/dnhtmir/dnhtmir.github.io/blob/main/content"
+  Text: "Suggest Changes"
+  appendFilePath: true
 ---
 
 ## Introduction
