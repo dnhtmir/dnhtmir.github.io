@@ -83,7 +83,7 @@ Now that we're done with Goals and Additional Requirements, it's time to come up
 
 I got a pre-built `qemu` VM from [Kali's website](https://www.kali.org/get-kali/#kali-virtual-machines) and built my own Ubuntu 25.10 machine. Then, I installed `vscode` and the `Continue.continue` extension from the [marketplace](https://marketplace.visualstudio.com/items?itemName=Continue.continue) in both of them.
 
-<sup>Note: It's not in the scope of this article to explain how to import virtual machines or create your own ones, or how to install `vscode` on any of these distributions. However, there are plenty of good guides freely available online!</sup>
+Note: It's not in the scope of this article to explain how to import virtual machines or create your own ones, or how to install `vscode` on any of these distributions. However, there are plenty of good guides freely available online!
 
 ### Setting up the `ollama` container
 

@@ -40,3 +40,10 @@ ehthumbs.db
 # macOS cache files
 .AppleDouble
 .LSOverride
+
+.venv/
+
+# ignore secrets
+password
+plain_certs
+encrypt.html

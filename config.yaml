@@ -69,6 +69,8 @@ params:
         url: posts
       - name: whoami
         url: whoami
+      - name: certs
+        url: certs
 
   # home-info mode
   homeInfoParams:
@@ -110,6 +112,10 @@ menu:
       name: whoami
       url: /whoami/
       weight: 20
+    - identifier: certs
+      name: certs
+      url: /certs/
+      weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
