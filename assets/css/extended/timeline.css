@@ -1,69 +1,82 @@
 .timeline {
   position: relative;
   margin: 0 auto;
-  padding: 0rem 0rem;
-  max-width: 800px;
+  padding: 2rem 0;
+  max-width: 1000px;
 }
 
-.timeline::before {
-  content: none;
+.timeline-year-group {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  column-gap: 1rem;
+  position: relative;
+}
+
+.timeline-year {
+  grid-column: 1;
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  z-index: 5;
+}
+
+.timeline-year-fixed {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary);
+  opacity: 0.85;
+  pointer-events: none;
+  transition: all 0.5s ease;
 }
 
 .timeline-item {
-  position: relative;
-  margin: 2rem 0;
-  width: 50%;
+  grid-column: 2;
+  margin: 0rem 0;
+  width: 100%;
 }
 
-.timeline-item:nth-child(odd) {
-  left: 0;
-}
-
-.timeline-item:nth-child(even) {
-  left: 50%;
-}
-
-.timeline-date {
-  font-weight: bold;
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
+.timeline-item[data-importance="1"] .timeline-content { --scale: 0.70; --hover-scale: 0.80; }
+.timeline-item[data-importance="2"] .timeline-content { --scale: 0.75; --hover-scale: 0.85; }
+.timeline-item[data-importance="3"] .timeline-content { --scale: 0.80; --hover-scale: 0.90; }
+.timeline-item[data-importance="4"] .timeline-content { --scale: 0.85; --hover-scale: 0.95; }
+.timeline-item[data-importance="5"] .timeline-content { --scale: 0.90; --hover-scale: 1.00; border: 2px solid var(--primary); }
 
 .timeline .timeline-content {
   background: var(--entry);
   color: var(--content);
   padding: 1rem;
   border-radius: 8px;
+  transform: scale(var(--scale, 1));
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Resting shadow per theme */
 html[data-theme='dark'] .timeline .timeline-content {
   box-shadow: 0 0 12px rgba(0, 180, 255, 0.6);
 }
 
 html[data-theme='light'] .timeline .timeline-content {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08), 0 0 10px rgba(0, 90, 170, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 html[data-theme='dark'] .timeline .timeline-content:hover {
-  transform: translateY(-5px) scale(1.02);
+  transform: translateY(-5px) scale(var(--hover-scale, var(--scale, 1)));
   box-shadow: 0 0 22px rgba(0, 180, 255, 0.85);
 }
 
 html[data-theme='light'] .timeline .timeline-content:hover {
-  transform: translateY(-5px) scale(1.02);
+  transform: translateY(-5px) scale(var(--hover-scale, var(--scale, 1)));
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12), 0 0 16px rgba(0, 90, 170, 0.28);
-}
-
-html[data-theme='light'] .timeline .timeline-content {
-  border: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.timeline-link svg {
-  margin-left: 0.5rem;
-  vertical-align: middle;
-  color: var(--primary);
 }
 
 .timeline-tags {
@@ -81,9 +94,14 @@ html[data-theme='light'] .timeline .timeline-content {
 }
 
 .timeline-tags .timeline-link-icon svg {
-  width: 16px;   /* adjust to match tag text height */
-  height: 16px;
+  width: 1em;
+  height: 1em;
   vertical-align: middle;
-  fill: var(--theme); /* or var(--primary) depending on your design */
   margin-left: 0.25rem;
+}
+
+.timeline-dates {
+  font-size: 0.8rem;
+  color: var(--primary);
+  margin-top: 0.25rem;
 }

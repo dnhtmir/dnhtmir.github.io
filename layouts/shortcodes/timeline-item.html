@@ -1,13 +1,13 @@
-<div class="timeline-item">
-  {{ if .Get "date" }}
-    <div class="timeline-date">{{ .Get "date" }}</div>
-  {{ end }}
-
+<div class="timeline-item"
+     data-start="{{ .Get "start" }}"
+     data-end="{{ .Get "end" }}"
+     data-importance="{{ .Get "importance" | default "3" }}">
   <div class="timeline-content">
     <div class="timeline-header">
-      <h2 class="timeline-title">
-        {{ .Get "title" }}
-      </h2>
+      <h2 class="timeline-title">{{ .Get "title" }}</h2>
+      <div class="timeline-dates">
+        <span class="start">{{ .Get "start" }}</span> → <span class="end">{{ .Get "end" }}</span>
+      </div>
     </div>
 
     <div class="timeline-body">
@@ -19,7 +19,6 @@
         {{ range (split (.Get "tags") ",") }}
           <span class="tag">{{ . | strings.TrimSpace }}</span>
         {{ end }}
-
         {{ if .Get "link" }}
           <a href="{{ .Get "link" }}" target="_blank" rel="noopener" aria-label="Open certification link" class="timeline-link-icon">
             {{ partial "svg.html" (dict "name" (.Get "icon" | default "external-link") "class" "timeline-icon") }}

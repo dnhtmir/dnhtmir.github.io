@@ -1,14 +1,11 @@
 {{ define "main" }}
 <article class="post-single">
-  <!-- Post header -->
   <header class="post-header">
     {{ partial "breadcrumbs.html" . }}
     <h1 class="post-title entry-hint-parent">
       {{ .Title }}
       {{ if .Draft }}
-      <span class="entry-hint" title="Draft">
-        <!-- draft icon SVG -->
-      </span>
+      <span class="entry-hint" title="Draft"></span>
       {{ end }}
     </h1>
     {{ if .Description }}
@@ -24,22 +21,19 @@
     {{ end }}
   </header>
 
-  <!-- Cover image -->
   {{ partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" (.Param "cover.hiddenInSingle" | default (.Param "cover.hidden") | default false)) }}
 
-  <!-- Table of contents -->
   {{ if (.Param "ShowToc") }}
     {{ partial "toc.html" . }}
   {{ end }}
 
-  <!-- Timeline content -->
   <div class="post-content">
     <section class="timeline">
-      {{ .Content }} <!-- your decrypted timeline shortcode output -->
+      <div class="timeline-year-fixed"></div>
+      {{ .Content }}
     </section>
   </div>
 
-  <!-- Post footer -->
   <footer class="post-footer">
     {{ $tags := .Language.Params.Taxonomies.tag | default "tags" }}
     <ul class="post-tags">
@@ -55,9 +49,10 @@
     {{ end }}
   </footer>
 
-  <!-- Comments -->
   {{ if (.Param "comments") }}
     {{ partial "comments.html" . }}
   {{ end }}
 </article>
+
+<script src="/js/timeline_sort.js"></script>
 {{ end }}
