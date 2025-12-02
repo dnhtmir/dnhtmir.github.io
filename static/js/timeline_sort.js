@@ -1,10 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
+function applyTimelineSort() {
   const timeline = document.querySelector(".timeline");
   if (!timeline) return;
 
   const items = Array.from(timeline.querySelectorAll(".timeline-item"));
 
-    items.sort((a, b) => new Date(b.dataset.end || b.dataset.start) - new Date(a.dataset.end || a.dataset.start));
+  items.sort(
+    (a, b) =>
+      new Date(b.dataset.end || b.dataset.start) -
+      new Date(a.dataset.end || a.dataset.start)
+  );
 
   const groupsByYear = new Map();
   for (const item of items) {
@@ -15,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const sortedYears = Array.from(groupsByYear.keys()).sort((a, b) => b - a);
+
+  // Clear existing children before regrouping
+  timeline.innerHTML = "";
 
   for (const year of sortedYears) {
     const group = document.createElement("div");
@@ -31,6 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
       item.style.marginLeft = "0";
     }
 
-        timeline.appendChild(group);
+    timeline.appendChild(group);
   }
+}
+
+// Run once on initial DOM load
+document.addEventListener("DOMContentLoaded", () => {
+  applyTimelineSort();
 });

@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (cachedBlob === blob && cachedPlaintext) {
     contentDiv.innerHTML = cachedPlaintext;
     document.getElementById("unlock").style.display = "none";
+    applyTimelineSort();
     return;
   } else {
     // Blob changed → clear old cache
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.getElementById("unlock").style.display = "none";
         contentDiv.innerHTML = plaintext;
+        applyTimelineSort();
       } else {
         contentDiv.innerText = "Wrong password";
       }
