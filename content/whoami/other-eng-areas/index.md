@@ -1,10 +1,8 @@
 ---
-title: "Certifications and Other Skills"
+title: "Certifications and Skills in other Engineering Areas"
 draft: false
-type: "certs"
-layout: "timeline"
-params:
-  customCSS: ["css/extended/timeline.css"]
+build:
+  list: never
 ---
 
 ## Certifications Timeline

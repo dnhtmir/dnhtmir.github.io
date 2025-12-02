@@ -1,0 +1,8 @@
+<div class="square-item" data-importance="{{ .Get "importance" }}" style="--accent: {{ .Get "color" }}">
+  <a href="{{ .Get "link" | relURL | safeURL }}" class="square-link">
+    <div class="square-content">
+      <h3 class="square-title">{{ .Get "title" }}</h3>
+      <p class="square-desc">{{ .Get "desc" }}</p>
+    </div>
+  </a>
+</div>

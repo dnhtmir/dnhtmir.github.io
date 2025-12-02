@@ -1,0 +1,98 @@
+.square-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.square-item {
+    border-radius: 8px;
+    background: var(--entry);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    border-left: 6px solid var(--accent);
+
+    --scale: 1;
+    --hover-scale: 1.05;
+
+    transform: scale(var(--scale));
+}
+
+.square-item[data-importance="1"] {
+    --scale: 0.80;
+    --hover-scale: 0.85;
+}
+
+.square-item[data-importance="2"] {
+    --scale: 0.85;
+    --hover-scale: 0.90;
+}
+
+.square-item[data-importance="3"] {
+    --scale: 0.90;
+    --hover-scale: 0.95;
+}
+
+.square-item[data-importance="4"] {
+    --scale: 0.95;
+    --hover-scale: 1.00;
+}
+
+.square-item[data-importance="5"] {
+    --scale: 1.00;
+    --hover-scale: 1.05;
+}
+
+html[data-theme='dark'] .square-item {
+    box-shadow: 0 0 12px rgba(0, 180, 255, 0.6);
+}
+
+html[data-theme='light'] .square-item {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08),
+                0 0 10px rgba(0, 90, 170, 0.18);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.square-item[data-importance="5"] {
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.20);
+}
+
+html[data-theme='dark'] .square-item[data-importance="4"],
+html[data-theme='dark'] .square-item[data-importance="5"] {
+    box-shadow: 0 0 22px rgba(0, 180, 255, 0.8);
+}
+
+html[data-theme='dark'] .square-item:hover {
+    transform: translateY(-5px) scale(var(--hover-scale));
+    box-shadow: 0 0 22px rgba(0, 180, 255, 0.85);
+}
+
+html[data-theme='light'] .square-item:hover {
+    transform: translateY(-5px) scale(var(--hover-scale));
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12),
+                0 0 16px rgba(0, 90, 170, 0.28);
+}
+
+.square-content {
+    padding: 1rem;
+    color: var(--content);
+    text-align: left;
+}
+
+.square-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.square-title {
+    margin: 0 0 0.4rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.square-desc {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.95;
+}
