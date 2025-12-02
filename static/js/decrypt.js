@@ -4,12 +4,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const pwInput = document.getElementById("pw");
   const unlockBtn = document.getElementById("unlockBtn");
 
-  // If cached plaintext exists, show it immediately
-  const cached = sessionStorage.getItem("timelinePlaintext");
-  if (cached) {
-    contentDiv.innerHTML = cached;
+  // Check if we already cached plaintext for this exact blob
+  const cachedBlob = localStorage.getItem("timelineBlob");
+  const cachedPlaintext = localStorage.getItem("timelinePlaintext");
+
+  if (cachedBlob === blob && cachedPlaintext) {
+    contentDiv.innerHTML = cachedPlaintext;
     document.getElementById("unlock").style.display = "none";
     return;
+  } else {
+    // Blob changed → clear old cache
+    localStorage.removeItem("timelinePlaintext");
+    localStorage.setItem("timelineBlob", blob);
   }
 
   // Attach unlock handler
@@ -25,10 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const plaintext = bytes.toString(CryptoJS.enc.Utf8);
 
       if (plaintext) {
-        // Cache plaintext for this session
-        sessionStorage.setItem("timelinePlaintext", plaintext);
+        // Cache plaintext tied to this blob
+        localStorage.setItem("timelinePlaintext", plaintext);
+        localStorage.setItem("timelineBlob", blob);
 
-        // Hide unlock form and show content
         document.getElementById("unlock").style.display = "none";
         contentDiv.innerHTML = plaintext;
       } else {
