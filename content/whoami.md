@@ -5,6 +5,6 @@ title: "whoami"
 draft: false
 ---
 
-I am a Security Professional who wants to become a Malware Researcher. It has been a wild ride, but I hope to eventually get there.
+I am a Security Professional who wants to become a Malware Researcher.
 
 This section is still under construction.
