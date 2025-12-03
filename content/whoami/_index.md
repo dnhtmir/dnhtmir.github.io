@@ -1,10 +1,6 @@
 ---
 title: "whoami"
 draft: false
-cascade:
-  params:
-    color: red
-  hidden: true
 ---
 
 I am a Security Professional who wants to become a Malware Researcher.
