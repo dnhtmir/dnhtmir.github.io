@@ -51,6 +51,49 @@
 .timeline-item[data-importance="4"] .timeline-content { --scale: 0.85; --hover-scale: 0.95; }
 .timeline-item[data-importance="5"] .timeline-content { --scale: 0.90; --hover-scale: 1.00; border: 2px solid var(--primary); }
 
+.timeline-item[data-type="cert"] .timeline-content {
+  --type-shadow: rgba(30,144,255,0.55);
+}
+
+.timeline-item[data-type="degree"] .timeline-content {
+  --type-shadow: rgba(255,165,0,0.55);
+}
+
+.timeline-item[data-type="project"] .timeline-content {
+  --type-shadow: rgba(60,200,60,0.55);
+}
+
+.timeline-item[data-type="job"] .timeline-content {
+  --type-shadow: rgba(128,0,128,0.55);
+}
+
+.timeline-item[data-type="online-course"] .timeline-content {
+  --type-shadow: rgba(0,180,255,0.55);
+}
+
+.timeline-item[data-type="course"] .timeline-content {
+  --type-shadow: rgba(255,105,180,0.55);
+}
+
+.timeline-item[data-type="workshop"] .timeline-content {
+  --type-shadow: rgba(255,140,0,0.55);
+}
+
+/* fallback */
+.timeline-item .timeline-content {
+  --type-shadow: rgba(0,0,0,0.25);
+}
+
+
+html[data-theme='dark'] .timeline .timeline-content {
+  box-shadow: 0 0 12px var(--type-shadow);
+}
+html[data-theme='light'] .timeline .timeline-content {
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.1),
+    0 0 10px var(--type-shadow);
+}
+
 .timeline .timeline-content {
   background: var(--entry);
   color: var(--content);
@@ -60,23 +103,16 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-html[data-theme='dark'] .timeline .timeline-content {
-  box-shadow: 0 0 12px rgba(0, 180, 255, 0.6);
-}
-
-html[data-theme='light'] .timeline .timeline-content {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08), 0 0 10px rgba(0, 90, 170, 0.18);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-}
-
 html[data-theme='dark'] .timeline .timeline-content:hover {
   transform: translateY(-5px) scale(var(--hover-scale, var(--scale, 1)));
-  box-shadow: 0 0 22px rgba(0, 180, 255, 0.85);
+  box-shadow: 0 0 22px var(--type-shadow);
 }
 
 html[data-theme='light'] .timeline .timeline-content:hover {
   transform: translateY(-5px) scale(var(--hover-scale, var(--scale, 1)));
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12), 0 0 16px rgba(0, 90, 170, 0.28);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.12),
+    0 0 16px var(--type-shadow);
 }
 
 .timeline-tags {
@@ -98,10 +134,28 @@ html[data-theme='light'] .timeline .timeline-content:hover {
   height: 1em;
   vertical-align: middle;
   margin-left: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none !important;
+  border: none !important;    
 }
 
 .timeline-dates {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--primary);
-  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
 }
+
+.timeline-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.timeline-institution {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
