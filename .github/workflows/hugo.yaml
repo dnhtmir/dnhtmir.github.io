@@ -80,13 +80,18 @@ jobs:
       - name: Set up GH CLI
         run: sudo apt-get install gh
 
-      - name: Delete old deployments
+      - name: Cleanup old deployments
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh api repos/${{ github.repository }}/deployments \
-            --jq '.[].id' > deployments.txt
+          gh api repos/${{ github.repository }}/deployments --jq '.[].id' > deployments.txt
           ids=$(tail -n +6 deployments.txt)
+
           for id in $ids; do
+            echo "Deactivating deployment $id..."
+            gh api repos/${{ github.repository }}/deployments/$id/statuses \
+              -X POST -F state=inactive
+
+            echo "Deleting deployment $id..."
             gh api repos/${{ github.repository }}/deployments/$id -X DELETE
           done
