@@ -1,3 +1,10 @@
+html[data-theme='light'],
+html[data-theme='dark'] {
+    --accent: #00b4ff;
+    --entry: #ffffff;
+    --content: #111111;
+}
+
 .square-grid {
     display: flex;
     flex-direction: column;
@@ -18,48 +25,18 @@
     transform: scale(var(--scale));
 }
 
-.square-item[data-importance="1"] {
-    --scale: 0.80;
-    --hover-scale: 0.85;
-}
-
-.square-item[data-importance="2"] {
-    --scale: 0.85;
-    --hover-scale: 0.90;
-}
-
-.square-item[data-importance="3"] {
-    --scale: 0.90;
-    --hover-scale: 0.95;
-}
-
-.square-item[data-importance="4"] {
-    --scale: 0.95;
-    --hover-scale: 1.00;
-}
-
-.square-item[data-importance="5"] {
-    --scale: 1.00;
-    --hover-scale: 1.05;
-}
+.square-item[data-importance="1"] { --scale: 0.80; --hover-scale: 0.85; }
+.square-item[data-importance="2"] { --scale: 0.85; --hover-scale: 0.90; }
+.square-item[data-importance="3"] { --scale: 0.90; --hover-scale: 0.95; }
+.square-item[data-importance="4"] { --scale: 0.95; --hover-scale: 1.00; }
+.square-item[data-importance="5"] { --scale: 1.00; --hover-scale: 1.05; }
 
 html[data-theme='dark'] .square-item {
-    box-shadow: 0 0 12px rgba(0, 180, 255, 0.6);
+    box-shadow: 0 0 12px rgba(0, 180, 255, 0.60);
 }
 
 html[data-theme='light'] .square-item {
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08),
-                0 0 10px rgba(0, 90, 170, 0.18);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.square-item[data-importance="5"] {
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.20);
-}
-
-html[data-theme='dark'] .square-item[data-importance="4"],
-html[data-theme='dark'] .square-item[data-importance="5"] {
-    box-shadow: 0 0 22px rgba(0, 180, 255, 0.8);
+    box-shadow: 0 0 12px rgba(0, 180, 255, 0.20);
 }
 
 html[data-theme='dark'] .square-item:hover {
@@ -69,8 +46,7 @@ html[data-theme='dark'] .square-item:hover {
 
 html[data-theme='light'] .square-item:hover {
     transform: translateY(-5px) scale(var(--hover-scale));
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12),
-                0 0 16px rgba(0, 90, 170, 0.28);
+    box-shadow: 0 0 22px rgba(0, 180, 255, 0.45);
 }
 
 .square-content {
