@@ -9,5 +9,5 @@ These are some skills I acquired before I started working in Cyber Security:
 
 {{< square-grid >}}
   {{< square title="Industrial Automation" desc="PLC, SCADA, and control systems." link="/whoami/archive/industrial-automation/" color="#d97706" importance="5" >}}
-  {{< square title="Engineering" desc="Mechanical, civil, and other disciplines." link="/whoami/archive/other-eng-areas/" color="#6b7280" importance="5" >}}
+  {{< square title="Other Engineering Areas" desc="Mechanical, civil, and other disciplines." link="/whoami/archive/other-eng-areas/" color="#6b7280" importance="5" >}}
 {{< /square-grid >}}
