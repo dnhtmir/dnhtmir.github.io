@@ -6,21 +6,27 @@ function applyTimelineSort() {
 
   items.sort(
     (a, b) =>
-      new Date(b.dataset.end || b.dataset.start) -
-      new Date(a.dataset.end || a.dataset.start)
+      new Date(b.dataset.end === "Today" ? Date.now() : (b.dataset.end || b.dataset.start)) -
+      new Date(a.dataset.end === "Today" ? Date.now() : (a.dataset.end || a.dataset.start))
   );
 
   const groupsByYear = new Map();
   for (const item of items) {
     const end = item.dataset.end || item.dataset.start;
-    const year = new Date(end).getFullYear();
+    const year =
+      end === "Today"
+        ? "Today"
+        : new Date(end).getFullYear();
     if (!groupsByYear.has(year)) groupsByYear.set(year, []);
     groupsByYear.get(year).push(item);
   }
 
-  const sortedYears = Array.from(groupsByYear.keys()).sort((a, b) => b - a);
+  const sortedYears = Array.from(groupsByYear.keys()).sort((a, b) => {
+    if (a === "Today") return -1;
+    if (b === "Today") return 1;
+    return b - a;
+  });
 
-  // Clear existing children before regrouping
   timeline.innerHTML = "";
 
   for (const year of sortedYears) {
@@ -42,7 +48,6 @@ function applyTimelineSort() {
   }
 }
 
-// Run once on initial DOM load
 document.addEventListener("DOMContentLoaded", () => {
   applyTimelineSort();
 });
