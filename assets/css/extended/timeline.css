@@ -76,7 +76,11 @@
 }
 
 .timeline-item[data-type="workshop"] .timeline-content {
-  --type-shadow: rgba(255,140,0,0.55);
+  --type-shadow: rgba(255,215,0,0.55);
+}
+
+.timeline-item[data-type="book"] .timeline-content {
+  --type-shadow: rgba(139,69,19,0.55);
 }
 
 /* fallback */
