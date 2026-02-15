@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       unlockDiv.style.display = "none";
       contentDiv.innerHTML = decrypted;
       if (typeof applyTimelineSort === "function") applyTimelineSort();
+      if (typeof applyTimelineGrouping === "function") applyTimelineGrouping();
       return;
     } else {
       localStorage.removeItem("sitePassword");
@@ -52,5 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
     contentDiv.innerHTML = decrypted;
 
     if (typeof applyTimelineSort === "function") applyTimelineSort();
+    if (typeof applyTimelineGrouping === "function") applyTimelineGrouping();
   });
 });

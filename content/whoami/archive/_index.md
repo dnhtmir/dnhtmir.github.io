@@ -5,7 +5,7 @@ build:
   list: never
 ---
 
-These are some skills I acquired before I started working in Cyber Security:
+Skills and knowledge developed prior to professional work in cybersecurity.
 
 {{< square-grid >}}
   {{< square title="Industrial Automation" desc="PLC, SCADA, and control systems." link="/whoami/archive/industrial-automation/" color="#d97706" importance="5" >}}
