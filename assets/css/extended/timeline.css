@@ -5,40 +5,6 @@
   max-width: 1000px;
 }
 
-.timeline-year-group {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: start;
-  column-gap: 1rem;
-  position: relative;
-}
-
-.timeline-year {
-  grid-column: 1;
-  position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  z-index: 5;
-}
-
-.timeline-year-fixed {
-  position: fixed;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3rem;
-  font-weight: bold;
-  color: var(--primary);
-  opacity: 0.85;
-  pointer-events: none;
-  transition: all 0.5s ease;
-}
-
 .timeline-item {
   grid-column: 2;
   margin: 0rem 0;
@@ -81,6 +47,10 @@
 
 .timeline-item[data-type="book"] .timeline-content {
   --type-shadow: rgba(139,69,19,0.55);
+}
+
+.timeline-item[data-type="volunteering"] .timeline-content {
+  --type-shadow: rgba(0, 150, 136, 0.55);
 }
 
 /* fallback */
@@ -163,3 +133,14 @@ html[data-theme='light'] .timeline .timeline-content:hover {
   color: var(--primary);
 }
 
+.timeline-section {
+  margin-bottom: 3rem;
+}
+
+.timeline-section-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+}
