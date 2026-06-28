@@ -55,7 +55,7 @@ html[data-theme='light'] .square-item:hover {
     text-align: left;
 }
 
-.square-link {
+.md-content a.square-link {
     text-decoration: none;
     color: inherit;
     display: block;
